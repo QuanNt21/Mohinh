@@ -1,8 +1,8 @@
 :root {
-    --red-color: #b34b4b;
+    --red-color: #722424;
     --red-active-color: #ff0000;
-    --blue-color: #1c9a24;
-    --blue-active-color: #1c9a24;
+    --blue-color: #18561b;
+    --blue-active-color: #00ff0a;
 }
 
 .btns-red {
@@ -43,9 +43,9 @@
 .btns-red label input:checked ~ span {
     /* box-shadow: 0 0 10px #ee0909, 0 0 20px #e00d0d, 0 0 20px red inset; */
     background: var(--red-active-color);
-    box-shadow: 0 0 10px var(--red-active-color), 0 0 20px var(--red-active-color),
-        0 0 40px var(--red-active-color), 0 0 60px var(--red-active-color),
-        0 0 80px var(--red-active-color);
+    box-shadow: 0 0 1px var(--red-active-color), 0 0 2px var(--red-active-color),
+        0 0 3px var(--red-active-color), 0 0 4px var(--red-active-color),
+        0 0 5px var(--red-active-color);
 }
 
 .btns-red label span::before {
@@ -242,8 +242,10 @@
 }
 
 .btns-blue-double .btns-blue-1 label input:checked ~ span {
-    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.35), inset 5px 5px rgba(0, 0, 0, 0.5),
-        inset 0 10px 10px rgba(0, 0, 0, 0.35);
+    background: var(--blue-active-color);
+    box-shadow: 0 0 1px var(--blue-active-color), 0 0 2px var(--blue-active-color),
+        0 0 3px var(--blue-active-color), 0 0 4px var(--blue-active-color),
+        0 0 5px var(--blue-active-color);
 }
 
 .btns-blue-double .btns-blue-1 label span::before {
@@ -292,8 +294,10 @@
 }
 
 .btns-blue-double .btns-blue-2 label input:checked ~ span {
-    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.35), inset 5px 5px rgba(0, 0, 0, 0.5),
-        inset 0 10px 10px rgba(0, 0, 0, 0.35);
+    background: var(--blue-active-color);
+    box-shadow: 0 0 1px var(--blue-active-color), 0 0 2px var(--blue-active-color),
+        0 0 3px var(--blue-active-color), 0 0 4px var(--blue-active-color),
+        0 0 5px var(--blue-active-color);
 }
 
 .btns-blue-double .btns-blue-2 label span::before {
@@ -451,8 +455,10 @@
 }
 
 .btns-blue-double_vertical .btns-blue-1 label input:checked ~ span {
-    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.35), inset 5px 5px rgba(0, 0, 0, 0.5),
-        inset 0 10px 10px rgba(0, 0, 0, 0.35);
+    background: var(--blue-active-color);
+    box-shadow: 0 0 1px var(--blue-active-color), 0 0 2px var(--blue-active-color),
+        0 0 3px var(--blue-active-color), 0 0 4px var(--blue-active-color),
+        0 0 5px var(--blue-active-color);
 }
 
 .btns-blue-double_vertical .btns-blue-1 label span::before {
@@ -559,8 +565,10 @@
 }
 
 .btns-red-double_vertical .btns-blue-1 label input:checked ~ span {
-    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.35), inset 5px 5px rgba(0, 0, 0, 0.5),
-        inset 0 10px 10px rgba(0, 0, 0, 0.35);
+    background: var(--blue-active-color);
+    box-shadow: 0 0 1px var(--blue-active-color), 0 0 2px var(--blue-active-color),
+        0 0 3px var(--blue-active-color), 0 0 4px var(--blue-active-color),
+        0 0 5px var(--blue-active-color);
 }
 
 .btns-red-double_vertical .btns-blue-1 label span::before {

@@ -376,6 +376,10 @@
     left: -12px;
 }
 
+.bullet.be {
+    background-color: var(--primary-color);
+}
+
 .sum-bullet {
     width: 15%;
     height: 100%;
@@ -485,6 +489,13 @@
     margin-left: 30px;
     display: flex;
     flex-wrap: wrap;
+}
+
+.shooting-mode .btns-blue label input:checked ~ span {
+    background: var(--blue-active-color);
+    box-shadow: 0 0 1px var(--blue-active-color), 0 0 2px var(--blue-active-color),
+        0 0 3px var(--blue-active-color), 0 0 4px var(--blue-active-color),
+        0 0 5px var(--blue-active-color);
 }
 
 .footer-below_left .shooting-mode h4 {
