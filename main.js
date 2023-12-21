@@ -10,6 +10,9 @@ const hide = selectContainer.querySelector(".screen .hide");
 const scale = selectContainer.querySelectorAll(".btn-scale input");
 const selectChannel = selectContainer.querySelectorAll(".nav-container_right .btns-blue-1 input");
 const selectedBe = selectContainer.querySelectorAll(".bullets .row-bullet .be");
+const checkPencil = selectContainer.querySelectorAll(".nav-footer_center input");
+const pencilBe = selectContainer.querySelectorAll(".row-bullet .pencil div");
+const noticePencil = selectContainer.querySelectorAll(".row-bullet .pencil span");
 
 // footer
 const selectFooter = $.querySelector(".footer");
@@ -18,11 +21,13 @@ const be = selectFooter.querySelectorAll(".range-btns .btns-white input");
 const shootingMode = selectFooter.querySelectorAll(".footer-below_left .shooting-mode input");
 const recognition = selectFooter.querySelectorAll(".footer-below_right .recognition input");
 
-console.log(selectedBe);
+// console.log(pencilNotice);
 
 const app = {
     handleEvents: function () {
         const _this = this;
+        let selectBe = [];
+        let selectNotive = [];
         // Xử lý khi click play
         // Handle when click play
         selectBtnPower.onclick = function () {
@@ -48,18 +53,52 @@ const app = {
 
         for (var i = 0; i < be.length; i++) {
             be[i].addEventListener("click", function (e) {
-                var currentBe = this.value;
-                var selectBe = selectedBe[currentBe - 1];
-                selectBe.style.background = "rgba(211, 211, 211, 0.3)";
-                console.log(selectBe);
+                let currentBe = this.value;
+                selectBe = [
+                    pencilBe[+currentBe - 1],
+                    pencilBe[+currentBe + 11],
+                    pencilBe[+currentBe + 23],
+                    pencilBe[+currentBe + 35],
+                ];
+
+                selectNotive = [
+                    noticePencil[+currentBe - 1],
+                    noticePencil[+currentBe + 11],
+                    noticePencil[+currentBe + 23],
+                    noticePencil[+currentBe + 35],
+                ];
+
+                for (var j = 0; j < be.length; j++) {
+                    be[j].checked === true
+                        ? (selectedBe[j].style.background = "rgba(211, 211, 211, 0.3)")
+                        : (selectedBe[j].style.background = "var(--primary-color)");
+                }
+                // console.log("Be so", currentBe);
+            });
+        }
+
+        for (var a = 0; a < checkPencil.length; a++) {
+            checkPencil[a].addEventListener("click", function (e) {
+                var currentPencil = selectBe[+this.value - 1];
+                var currentNoticePencil = selectNotive[+this.value - 1];
+                currentPencil.style.animation = "blink 1s linear infinite";
+                currentNoticePencil.textContent = "4";
+
+                // console.log("Notice so", +this.value);
+                // console.log(currentNoticePencil);
             });
         }
     },
+
+    render: function () {},
 
     start: function () {
         // Lắng nghe / xử lý các sự kiện (DOM events)
         // Listening / handling events (DOM events)
         this.handleEvents();
+
+        // Render
+        this.render();
     },
 };
 
