@@ -565,10 +565,10 @@
 }
 
 .btns-red-double_vertical .btns-blue-1 label input:checked ~ span {
-    background: var(--blue-active-color);
-    box-shadow: 0 0 1px var(--blue-active-color), 0 0 2px var(--blue-active-color),
-        0 0 3px var(--blue-active-color), 0 0 4px var(--blue-active-color),
-        0 0 5px var(--blue-active-color);
+    background: var(--red-active-color);
+    box-shadow: 0 0 1px var(--red-active-color), 0 0 2px var(--red-active-color),
+        0 0 3px var(--red-active-color), 0 0 4px var(--red-active-color),
+        0 0 5px var(--red-active-color);
 }
 
 .btns-red-double_vertical .btns-blue-1 label span::before {
