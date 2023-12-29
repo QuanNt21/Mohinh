@@ -347,8 +347,10 @@
 }
 
 .btns-red-double .btns-red-1 label input:checked ~ span {
-    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.35), inset 5px 5px rgba(0, 0, 0, 0.5),
-        inset 0 10px 10px rgba(0, 0, 0, 0.35);
+    background: var(--red-active-color);
+    box-shadow: 0 0 1px var(--red-active-color), 0 0 2px var(--red-active-color),
+        0 0 3px var(--red-active-color), 0 0 4px var(--red-active-color),
+        0 0 5px var(--red-active-color);
 }
 
 .btns-red-double .btns-red-1 label span::before {
@@ -397,8 +399,10 @@
 }
 
 .btns-red-double .btns-red-2 label input:checked ~ span {
-    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.35), inset 5px 5px rgba(0, 0, 0, 0.5),
-        inset 0 10px 10px rgba(0, 0, 0, 0.35);
+    background: var(--red-active-color);
+    box-shadow: 0 0 1px var(--red-active-color), 0 0 2px var(--red-active-color),
+        0 0 3px var(--red-active-color), 0 0 4px var(--red-active-color),
+        0 0 5px var(--red-active-color);
 }
 
 .btns-red-double .btns-red-2 label span::before {
@@ -507,8 +511,10 @@
 }
 
 .btns-blue-double_vertical .btns-blue-2 label input:checked ~ span {
-    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.35), inset 5px 5px rgba(0, 0, 0, 0.5),
-        inset 0 10px 10px rgba(0, 0, 0, 0.35);
+    background: var(--blue-active-color);
+    box-shadow: 0 0 1px var(--blue-active-color), 0 0 2px var(--blue-active-color),
+        0 0 3px var(--blue-active-color), 0 0 4px var(--blue-active-color),
+        0 0 5px var(--blue-active-color);
 }
 
 .btns-blue-double_vertical .btns-blue-2 label span::before {
@@ -617,8 +623,10 @@
 }
 
 .btns-red-double_vertical .btns-blue-2 label input:checked ~ span {
-    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.35), inset 5px 5px rgba(0, 0, 0, 0.5),
-        inset 0 10px 10px rgba(0, 0, 0, 0.35);
+    background: var(--red-active-color);
+    box-shadow: 0 0 1px var(--red-active-color), 0 0 2px var(--red-active-color),
+        0 0 3px var(--red-active-color), 0 0 4px var(--red-active-color),
+        0 0 5px var(--red-active-color);
 }
 
 .btns-red-double_vertical .btns-blue-2 label span::before {

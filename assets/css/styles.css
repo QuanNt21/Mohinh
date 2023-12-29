@@ -256,7 +256,7 @@
 }
 
 .show-information {
-    display: block;
+    /* display: none; */
     background-color: var(--primary-color);
     margin: auto;
     width: 90%;
@@ -283,7 +283,7 @@
 
 .show-information .channels .grid-channel {
     height: 100%;
-    width: 42%;
+    width: 33%;
 }
 
 .row-channel {
@@ -298,6 +298,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .row-channel .channel:last-child {
@@ -305,6 +306,7 @@
 }
 
 .channel .triangle {
+    display: none;
     width: 0px;
     height: 0px;
     border-style: solid;
@@ -326,15 +328,7 @@
     /* animation: blink 1s linear infinite; */
 }
 
-.channel .triangle.blue {
-    border-color: transparent transparent blue transparent;
-}
-
-.channel .triangle-solid.blue {
-    border-color: transparent transparent blue transparent;
-}
-
-.row-channel .pencil-notice {
+.row-channel .channel-notice {
     position: absolute;
     top: 2px;
     right: 2px;
@@ -365,7 +359,7 @@
 
 .show-information .channels .grid-signal {
     height: 100%;
-    width: 58%;
+    width: 67%;
 }
 
 .row-signal {
@@ -376,23 +370,35 @@
 }
 
 .row-signal .signal {
+    position: relative;
     border: 1px dashed rgb(52, 52, 139);
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-.row-signal .signal:last-child {
-    width: 15%;
+.row-signal .signal:last-child,
+.row-signal .signal:first-child {
+    width: 12%;
 }
 
 .row-signal .signal span {
     display: block;
     width: 100%;
-    height: 100%;
     border-bottom: 2px solid rgb(58, 66, 203);
-    margin-bottom: 30px;
+    position: absolute;
+    top: 14px;
+    left: 0;
+}
+
+.row-signal .signal h5 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    font-size: 10px;
 }
 
 .show-information .bullets {
@@ -448,6 +454,18 @@
     /* animation: blink 1s linear infinite; */
 }
 
+.bullet .triangle-solid-small {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    position: relative;
+    margin-top: 6px;
+    border-width: 0 8px 12px 8px;
+    border-color: transparent transparent green transparent;
+    transform: rotate(0deg);
+    /* animation: blink 1s linear infinite; */
+}
+
 .bullet .triangle.blue {
     border-color: transparent transparent blue transparent;
 }
@@ -488,7 +506,34 @@
 .sum-bullet {
     width: 15%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px dashed blue;
+    position: relative;
+}
+
+.sum-bullet .triangle-solid {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    position: relative;
+    border-width: 0 10px 15px 10px;
+    border-color: transparent transparent green transparent;
+    transform: rotate(0deg);
+    /* animation: blink 1s linear infinite; */
+}
+
+.sum-bullet .pencil-notice {
+    position: absolute;
+    top: 76px;
+    right: 18px;
+    padding: 0px 2px;
+    font-size: 14px;
+    /* border: 1px solid red; */
+    line-height: 14px;
+    color: #fff;
+    background-color: var(--primary-color);
 }
 
 @keyframes blink {
@@ -536,21 +581,26 @@
 .footer-above_left h5 {
     padding-top: 10px;
     display: block;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 12px;
+}
+
+.footer-above_left .btn-footer {
+    height: 50%;
+    margin: 0;
 }
 
 .footer-above_right {
     display: flex;
     flex-wrap: wrap;
     padding-left: 130px;
-    border: 1px solid red;
     width: 70%;
     height: 100%;
 }
 
 .footer-above_right .range-btns {
     height: 50%;
+    width: 100%;
     display: flex;
     gap: 2px;
 }
@@ -566,9 +616,26 @@
     margin-top: 6px;
 }
 
-.footer-above_left .btn-footer {
+.footer-above_right .range-switch {
     height: 50%;
-    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    gap: 2px;
+}
+
+.footer-above_right .range-switch .tanso h4 {
+    width: 19px;
+    height: 50%;
+    font-size: 12px;
+    color: #000;
+}
+
+.footer-above_right .range-switch h5 {
+    padding-top: 6px;
+    font-size: 10px;
+    color: #000;
 }
 
 /* Footer below */
