@@ -281,6 +281,7 @@
     height: 50%;
 }
 
+/* channel */
 .show-information .channels .grid-channel {
     height: 100%;
     width: 33%;
@@ -325,6 +326,17 @@
     border-width: 0 16px 20px 16px;
     border-color: transparent transparent green transparent;
     transform: rotate(0deg);
+}
+
+.channel .triangle-solid-small {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    position: relative;
+    margin-top: 6px;
+    border-width: 0 8px 12px 8px;
+    border-color: transparent transparent green transparent;
+    transform: rotate(0deg);
     /* animation: blink 1s linear infinite; */
 }
 
@@ -357,12 +369,14 @@
     color: #fff;
 }
 
+/* Signal */
 .show-information .channels .grid-signal {
     height: 100%;
     width: 67%;
 }
 
 .row-signal {
+    /* display: none; */
     width: 100%;
     height: 16.6%;
     margin-left: 0;
@@ -384,12 +398,108 @@
     width: 12%;
 }
 
-.row-signal .signal span {
+.row-signal .signal .border {
     display: block;
     width: 100%;
     border-bottom: 2px solid rgb(58, 66, 203);
     position: absolute;
     top: 14px;
+    left: 0;
+}
+
+.row-signal .signal .dash {
+    display: block;
+    width: 10px;
+    border-bottom: 2px solid yellow;
+    position: absolute;
+    top: 14px;
+    right: 0;
+}
+
+.row-signal .signal .shoots1 {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    position: relative;
+    top: -10px;
+    right: -16px;
+    border-width: 0 7px 11px 7px;
+    border-color: transparent transparent green transparent;
+    transform: rotate(0deg);
+}
+
+.row-signal .signal .shoots1::before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: solid 3px transparent;
+    border-left: solid 4px transparent;
+    border-bottom: solid 9px var(--primary-color);
+    /* border-bottom: solid 8px yellow; */
+    border-right: solid 4px transparent;
+    top: -2px;
+    left: -4px;
+}
+
+.row-signal .signal .shoots1-solid {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    position: relative;
+    top: -10px;
+    right: -16px;
+    border-width: 0 7px 11px 7px;
+    border-color: transparent transparent green transparent;
+    transform: rotate(0deg);
+}
+
+.row-signal .signal .shoots2 {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    position: relative;
+    top: -10px;
+    right: -20px;
+    border-width: 0 7px 11px 7px;
+    border-color: transparent transparent green transparent;
+    transform: rotate(0deg);
+}
+
+.row-signal .signal .shoots2::before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: solid 3px transparent;
+    border-left: solid 4px transparent;
+    border-bottom: solid 9px var(--primary-color);
+    /* border-bottom: solid 8px yellow; */
+    border-right: solid 4px transparent;
+    top: -2px;
+    left: -4px;
+}
+
+.row-signal .signal .shoots2-solid {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    position: relative;
+    top: -10px;
+    right: -20px;
+    border-width: 0 7px 11px 7px;
+    border-color: transparent transparent green transparent;
+    transform: rotate(0deg);
+}
+
+.row-signal .signal .tinhieu {
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(90deg, yellow, yellow 85%, transparent 75%, transparent 75%);
+    background-size: 20px 1px;
+    border: none;
+    position: absolute;
+    top: 17px;
     left: 0;
 }
 
@@ -401,11 +511,35 @@
     font-size: 10px;
 }
 
+.row-signal .signal h4 {
+    position: absolute;
+    top: 8px;
+    left: 28px;
+    color: yellow;
+    font-size: 14px;
+}
+
+.row-signal .signal h3 {
+    color: yellow;
+    font-size: 24px;
+}
+
+/* hide signal */
+.row-signal.hide-signal .signal .dash,
+.row-signal.hide-signal .signal .tinhieu,
+.row-signal.hide-signal .signal h3,
+.row-signal.hide-signal .signal h4,
+.row-signal.hide-signal .signal .shoots1,
+.row-signal.hide-signal .signal .shoots2 {
+    display: none;
+}
+
+/* Bullets */
 .show-information .bullets {
     display: flex;
     width: 100%;
     height: 50%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .grid-bullet {
