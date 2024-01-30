@@ -1,13 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap");
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 :root {
     --primary-color: rgb(33, 35, 35);
+    --xam-color: #8d8f8d;
 }
 
 .home {
@@ -29,14 +29,14 @@
 
 .hearder .hearder-left {
     position: relative;
-    right: -178px;
+    right: -160px;
     bottom: -30px;
     width: 30%;
 }
 
 .hearder .hearder-right {
     position: relative;
-    left: -178px;
+    left: -160px;
     bottom: -30px;
     width: 30%;
 }
@@ -49,7 +49,6 @@
 .hearder-center .hearder-up {
     width: 100%;
     height: 50%;
-    border: 1px solid #000;
     display: flex;
 }
 
@@ -63,7 +62,7 @@
     display: block;
     width: 100%;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     color: #000;
 }
 
@@ -86,7 +85,6 @@
 .hearder-center .hearder-down {
     width: 100%;
     height: 50%;
-    border: 1px solid #000;
     display: flex;
     padding-left: 150px;
 }
@@ -94,7 +92,7 @@
 .hearder-down h3 {
     margin: 0;
     padding: 0;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .hearder-down-left_btns {
@@ -103,9 +101,9 @@
 }
 
 .hearder-down-left_btns h4 {
-    margin-top: 1px;
+    margin-top: 3px;
     padding: 0;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .hearder-down-left_btns .btns-circle {
@@ -138,23 +136,21 @@
 /* nav hearder */
 .navbar .nav-hearder {
     position: relative;
-    border: #000 1px solid;
     height: 12%;
 }
 .btn-scale {
     position: absolute;
-    right: 157px;
+    right: 134px;
 }
 
 .btn-scale h3 {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 /* nav container */
 .navbar .nav-container {
     position: relative;
     display: flex;
-    border: #000 1px solid;
     height: 50%;
 }
 
@@ -165,7 +161,7 @@
 }
 
 .navbar .nav-container .nav-container_left h4 {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .navbar .nav-container .nav-container_right {
@@ -178,12 +174,11 @@
     display: block;
     width: 10px;
     margin-left: 14px;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 /* nav footer */
 .navbar .nav-footer {
-    border: #000 1px solid;
     height: 38%;
     display: flex;
 }
@@ -195,39 +190,38 @@
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    border: #000 1px solid;
 }
 
 .navbar .nav-footer .nav-footer_left h4 {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .navbar .nav-footer .nav-footer_center {
     width: 24%;
     padding-left: 22px;
-    border: #000 1px solid;
 }
 
 .navbar .nav-footer .nav-footer_center h4 {
-    font-size: 12px;
+    font-size: 10px;
+    text-align: left;
+    margin-left: 4px;
 }
 
 .navbar .nav-footer .nav-footer_right {
     width: 45%;
     padding-left: 38px;
-    border: #000 1px solid;
 }
 
 .navbar .nav-footer .nav-footer_right h4 {
     display: flex;
     width: 10px;
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .navbar .nav-footer .nav-footer_right h5 {
     margin-left: 8px;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
 }
 
@@ -241,7 +235,7 @@
     background-color: #fff;
     height: 100%;
     width: 80%;
-    border: #000 1px solid;
+    border: #000 2px solid;
     display: flex;
     margin-left: 50px;
 }
@@ -366,6 +360,7 @@
 }
 
 .channel h3 {
+    font-size: 12px;
     color: #fff;
 }
 
@@ -381,6 +376,7 @@
     height: 16.6%;
     margin-left: 0;
     margin-right: 0;
+    position: relative;
 }
 
 .row-signal .signal {
@@ -393,18 +389,9 @@
     overflow: hidden;
 }
 
-.row-signal .signal:last-child,
+.row-signal .signal:nth-child(7),
 .row-signal .signal:first-child {
     width: 12%;
-}
-
-.row-signal .signal .border {
-    display: block;
-    width: 100%;
-    border-bottom: 2px solid rgb(58, 66, 203);
-    position: absolute;
-    top: 14px;
-    left: 0;
 }
 
 .row-signal .signal .dash {
@@ -492,17 +479,6 @@
     transform: rotate(0deg);
 }
 
-.row-signal .signal .tinhieu {
-    width: 100%;
-    height: 2px;
-    background-image: linear-gradient(90deg, yellow, yellow 85%, transparent 75%, transparent 75%);
-    background-size: 20px 1px;
-    border: none;
-    position: absolute;
-    top: 17px;
-    left: 0;
-}
-
 .row-signal .signal h5 {
     position: absolute;
     right: 0;
@@ -516,17 +492,121 @@
     top: 8px;
     left: 28px;
     color: yellow;
-    font-size: 14px;
+    font-size: 10px;
 }
 
 .row-signal .signal h3 {
     color: yellow;
-    font-size: 24px;
+    font-size: 18px;
+}
+
+.row-signal .point-target {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.row-signal .point-target span {
+    position: absolute;
+}
+
+.row-signal .signal .border {
+    display: block;
+    width: 100%;
+    border-bottom: 2px solid rgb(58, 66, 203);
+    position: absolute;
+    top: 14px;
+    left: 0px;
+}
+
+.row-signal .point-target .tinhieu {
+    width: 42%;
+    height: 1px;
+    background-image: linear-gradient(90deg, yellow, yellow 80%, transparent 30%, transparent 30%);
+    background-size: 14px 1px;
+    border: none;
+    position: absolute;
+    top: 17px;
+    left: 54px;
+}
+
+.row-signal .point-target .damage-limit {
+    width: 3px;
+    height: 7px;
+    background-color: green;
+    top: 9px;
+    left: 247px;
+}
+
+.row-signal .point-target .tucthoi {
+    width: 3px;
+    height: 7px;
+    background-color: green;
+    top: 9px;
+    left: 110px;
+}
+
+.row-signal .point-target .gap-tenlua1 {
+    display: none;
+    width: 3px;
+    height: 12px;
+    background-color: green;
+    top: 4px;
+    left: 150px;
+}
+
+.row-signal .point-target .gap-tenlua2 {
+    display: none;
+    width: 3px;
+    height: 12px;
+    background-color: green;
+    top: 4px;
+    left: 146px;
+}
+
+.row-signal .point-target .diemdau {
+    width: 3px;
+    height: 7px;
+    background-color: green;
+    bottom: 10px;
+    left: 190px;
+}
+
+@keyframes animate {
+    0% {
+        left: 190px;
+    }
+    25% {
+        left: 180px;
+    }
+    50% {
+        left: 170px;
+    }
+    75% {
+        left: 160px;
+    }
+    100% {
+        left: 150px;
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        left: 150px;
+    }
+    50% {
+        left: 148px;
+    }
+    100% {
+        left: 146px;
+    }
 }
 
 /* hide signal */
 .row-signal.hide-signal .signal .dash,
-.row-signal.hide-signal .signal .tinhieu,
+.row-signal.hide-signal .point-target,
 .row-signal.hide-signal .signal h3,
 .row-signal.hide-signal .signal h4,
 .row-signal.hide-signal .signal .shoots1,
@@ -545,6 +625,10 @@
 .grid-bullet {
     width: 85%;
     height: 100%;
+}
+
+.grid-bullet h3 {
+    font-size: 12px;
 }
 
 .row-bullet {
@@ -601,11 +685,11 @@
 }
 
 .bullet .triangle.blue {
-    border-color: transparent transparent blue transparent;
+    border-color: transparent transparent var(--xam-color) transparent;
 }
 
 .bullet .triangle-solid.blue {
-    border-color: transparent transparent blue transparent;
+    border-color: transparent transparent var(--xam-color) transparent;
 }
 
 .row-bullet .pencil-notice {
@@ -643,41 +727,44 @@
 }
 
 .bullet.be h3 {
-    font-size: 16px;
+    font-size: 10px;
 }
 
 .bullet.be span:nth-child(1) {
     position: absolute;
     top: -2px;
-    left: 0;
-    font-size: 14px;
+    left: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--xam-color);
 }
 
 .bullet.be span:nth-child(2) {
     position: absolute;
     top: 2px;
-    right: 2px;
+    right: 4px;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: var(--xam-color);
 }
 
 .bullet.be span:nth-child(4) {
     position: absolute;
     bottom: 2px;
-    left: 2px;
+    left: 4px;
     width: 10px;
     height: 10px;
-    background-color: #fff;
+    background-color: var(--xam-color);
 }
 
 .bullet.be span:nth-child(5) {
     position: absolute;
-    font-size: 14px;
+    font-size: 10px;
     transform: rotate(90deg);
     bottom: -2px;
-    right: 0;
+    right: 4px;
+    color: var(--xam-color);
 }
 .sum-bullet {
     width: 15%;
@@ -685,7 +772,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px dashed blue;
     position: relative;
 }
 
@@ -705,7 +791,7 @@
     top: 76px;
     right: 18px;
     padding: 0px 2px;
-    font-size: 14px;
+    font-size: 10px;
     /* border: 1px solid red; */
     line-height: 14px;
     color: #fff;
@@ -733,7 +819,6 @@
 
 .home .footer .footer-above {
     display: flex;
-    border: 1px solid #000;
     height: 50%;
 }
 
@@ -741,7 +826,6 @@
     display: flex;
     flex-wrap: wrap;
     padding-left: 250px;
-    border: 1px solid red;
     width: 30%;
     height: 100%;
 }
@@ -751,7 +835,7 @@
     text-align: left;
     margin-left: 30px;
     width: 100%;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .footer-above_left h5 {
@@ -783,12 +867,12 @@
 
 .footer-above_right .range-btns h4 {
     display: block;
-    font-size: 12px;
+    font-size: 10px;
     margin-top: 16px;
 }
 
 .footer-above_right .range-btns h5 {
-    font-size: 12px;
+    font-size: 10px;
     margin-top: 6px;
 }
 
@@ -804,7 +888,7 @@
 .footer-above_right .range-switch .tanso h4 {
     width: 19px;
     height: 50%;
-    font-size: 12px;
+    font-size: 10px;
     color: #000;
 }
 
@@ -817,7 +901,6 @@
 /* Footer below */
 .home .footer .footer-below {
     display: flex;
-    border: 1px solid #000;
     width: 100%;
     height: 50%;
 }
@@ -827,11 +910,10 @@
     display: flex;
     width: 30%;
     padding-left: 50px;
-    border: 1px solid #000;
 }
 
 .footer-below_left h4 {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .footer-below_left .shooting-mode {
@@ -853,7 +935,7 @@
     margin-top: 9px;
     margin-left: 45px;
     width: 100%;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 12px;
 }
 
@@ -862,12 +944,12 @@
     display: block;
     margin-left: 35px;
     width: 100%;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 12px;
 }
 
 .footer-below_left .shooting-mode h6 {
-    font-size: 12px;
+    font-size: 10px;
     margin-top: 6px;
 }
 
@@ -885,11 +967,11 @@
 .footer-below_center {
     width: 40%;
     padding-left: 80px;
-    border: 1px solid #000;
+    padding-top: 35px;
 }
 
 .footer-below_center h4 {
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
     margin-left: 70px;
 }
@@ -902,12 +984,11 @@
 .footer-below_right {
     display: flex;
     gap: 30px;
-    border: 1px solid #000;
     width: 30%;
 }
 
 .footer-below_right h4 {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .footer-below_right .recognition {

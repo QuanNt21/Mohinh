@@ -3,6 +3,7 @@ const $ = document.querySelector(".home");
 const selectHearder = $.querySelector(".hearder");
 const led2 = selectHearder.querySelectorAll(".hearder-center .led_2");
 const cancelChannel = selectHearder.querySelectorAll(".hearder-down-left_btns .btns-circle input");
+// const OTMEHA = selectHearder.querySelectorAll(".hearder-down-left_btns .btns-circle input");
 
 // container
 const selectContainer = $.querySelector(".container");
@@ -17,8 +18,10 @@ const cancelPencil = selectContainer.querySelectorAll(".nav-footer_left .btns-ci
 const screen = selectContainer.querySelector(".screen .show-information");
 const hide = selectContainer.querySelector(".screen .hide");
 const selectedBe = selectContainer.querySelectorAll(".bullets .row-bullet .be");
+const selectedCN = selectContainer.querySelectorAll(".bullets .row-bullet .be span");
 
 const pencilBe = [...selectContainer.querySelectorAll(".row-bullet .pencil div")];
+const sumPencil = selectContainer.querySelectorAll(".sum-bullet .pencil-notice h3");
 
 const noticePencil = [...selectContainer.querySelectorAll(".row-bullet .pencil span")];
 
@@ -26,8 +29,15 @@ const pencilChannel = selectContainer.querySelectorAll(".row-channel .channel di
 const noticeChannel = selectContainer.querySelectorAll(".row-channel .channel span");
 
 const signal = selectContainer.querySelectorAll(".grid-signal .row-signal");
+const typeTarget = selectContainer.querySelectorAll(".grid-signal .row-signal .signal h4");
+const dashTarget = selectContainer.querySelectorAll(".grid-signal .row-signal .signal .dash");
+const problem = selectContainer.querySelectorAll(".grid-signal .row-signal .signal h3");
+
 const pencil1Signal = selectContainer.querySelectorAll(".grid-signal .row-signal .shoots1");
 const pencil2Signal = selectContainer.querySelectorAll(".grid-signal .row-signal .shoots2");
+const diemDau = [...selectContainer.querySelectorAll(".grid-signal .point-target .diemdau")];
+const gapTL1 = selectContainer.querySelectorAll(".grid-signal .point-target .gap-tenlua1");
+const gapTL2 = [...selectContainer.querySelectorAll(".grid-signal .point-target .gap-tenlua2")];
 
 // footer
 const selectFooter = $.querySelector(".footer");
@@ -38,7 +48,7 @@ const recognition = selectFooter.querySelectorAll(".footer-below_right .recognit
 const ktcnBe = selectFooter.querySelectorAll(".footer-above_left .ktcn-be");
 const pencilPhong = selectFooter.querySelectorAll(".footer-below .array-push .btns-red-2 input");
 
-// console.log(noticePencil);
+// console.log(selectedCN);
 
 const app = {
     handleEvents: function () {
@@ -56,6 +66,7 @@ const app = {
         let shoots1Channel;
         let shoots2Channel;
         let currentCancelChannel;
+        let currentCancelPencil;
         let timer_on = 0;
         let quaso;
         let channel = 0;
@@ -67,6 +78,7 @@ const app = {
         let kenh5 = [, , , ,];
         let kenh6 = [, , , ,];
         let kenh = [0, kenh1, kenh2, kenh3, kenh4, kenh5, kenh6];
+        let selectCN;
 
         function countdown(notive1, notive2) {
             timer_on = 1;
@@ -239,7 +251,7 @@ const app = {
                         var currentPencil = selectBe[+this.value - 1];
                         var currentNoticePencil = selectNotive[+this.value - 1];
                         currentNoticePencil.textContent = "4";
-                        currentPencil.style.animation = "blink 1s linear infinite";
+                        currentPencil.style.animation = "blink 2s linear infinite";
                         for (var j = 0; j < be.length; j++) {
                             be[j].checked = false;
                             be[j].checked === true
@@ -477,22 +489,24 @@ const app = {
                     console.log(currentKenhPhong === 0, currentSignal === 0);
                 } else {
                     var currentPencilPhong = this.value;
+                    stopCount();
                     setTimeout(function () {
                         selectKenhPhong[+currentPencilPhong - 1].classList.remove("triangle-solid");
                         selectKenhPhong[+currentPencilPhong - 1].classList.add(
                             "triangle-solid-small"
                         );
                         selectKenhPhong[+currentPencilPhong - 1].style.animation = "";
-                        stopCount();
                         selectNotivePhong[+currentPencilPhong - 1].textContent = "";
                         selectNotivePhong[+currentPencilPhong - 1].style.display = "none";
                         pencilBe[kenh[channelPhong][0]].classList.remove("triangle-solid-small");
                         pencilBe[kenh[channelPhong][0]].classList.add("triangle");
                         pencilBe[kenh[channelPhong][0]].style.display = "none";
                         noticePencil[kenh[channelPhong][0]].style.display = "none";
-                        // noticePencil[nho1].textContent = "";
+                        noticePencil[kenh[channelPhong][0]].textContent = "";
                         shoots1Channel.classList.remove("shoots1");
                         shoots1Channel.classList.add("shoots1-solid");
+                        diemDau[channelPhong - 1].style.animation =
+                            "animate 20s linear normal forwards";
                     }, 2000);
                     setTimeout(function () {
                         selectKenhPhong[+currentPencilPhong].classList.remove("triangle-solid");
@@ -512,20 +526,6 @@ const app = {
             });
         }
 
-        // huy chi thi muc tieu
-        for (var i = 0; i < cancelChannel.length; i++) {
-            cancelChannel[i].addEventListener("click", function () {
-                var currentPencil = selectBe[+this.value - 1];
-                var currentNoticePencil = selectNotive[+this.value - 1];
-                currentCancelChannel = this.value;
-                console.log(currentCancelChannel);
-                selectPencilChannel[+currentCancelChannel - 1].classList.add("triangle");
-                selectNotiveChannel[+currentCancelChannel - 1].textContent = "";
-                currentPencil.classList.remove("triangle-solid-small");
-                currentPencil.classList.add("triangle-solid");
-            });
-        }
-
         // Bàn phím
         document.addEventListener("keydown", (e) => {
             let keyName = e.keyCode === 32 ? "Space" : e.key;
@@ -542,7 +542,7 @@ const app = {
 
             // Mở máy
             if (e.keyCode === 27) {
-                selectBtnPower.checked = true;
+                // selectBtnPower.checked = true;
                 setTimeout(power, 2000);
                 function power() {
                     led2[0].classList.add("active");
@@ -570,10 +570,11 @@ const app = {
             }
 
             // Chọn bệ
-            if ((e.keyCode >= 112 && e.keyCode <= 123) || e.keyCode === 145) {
+            if ((e.keyCode >= 112 && e.keyCode <= 123 && e.keyCode !== 116) || e.keyCode === 145) {
                 e.preventDefault();
                 // console.log(e.keyCode);
                 var currentBe = e.keyCode - 111;
+                var currentCN;
                 if (e.keyCode === 145) {
                     currentBe = e.keyCode - 134;
                 }
@@ -593,7 +594,50 @@ const app = {
                     noticePencil[+currentBe + 23],
                     noticePencil[+currentBe + 35],
                 ];
+                if (currentBe == 1) {
+                    currentCN = 1;
+                }
+                if (currentBe == 2) {
+                    currentCN = 5;
+                }
+                if (currentBe == 3) {
+                    currentCN = 9;
+                }
+                if (currentBe == 4) {
+                    currentCN = 13;
+                }
+                if (currentBe == 5) {
+                    currentCN = 17;
+                }
+                if (currentBe == 6) {
+                    currentCN = 21;
+                }
+                if (currentBe == 7) {
+                    currentCN = 25;
+                }
+                if (currentBe == 8) {
+                    currentCN = 29;
+                }
+                if (currentBe == 9) {
+                    currentCN = 33;
+                }
+                if (currentBe == 10) {
+                    currentCN = 37;
+                }
+                if (currentBe == 11) {
+                    currentCN = 41;
+                }
+                if (currentBe == 12) {
+                    currentCN = 45;
+                }
 
+                selectCN = [
+                    selectedCN[+currentCN - 1],
+                    selectedCN[+currentCN],
+                    selectedCN[+currentCN + 1],
+                    selectedCN[+currentCN + 2],
+                ];
+                console.log(selectCN);
                 for (var j = 0; j < be.length; j++) {
                     be[j].checked === true
                         ? (selectedBe[j].style.background = "rgba(211, 211, 211, 0.3)")
@@ -613,7 +657,7 @@ const app = {
                     var currentPencil = selectBe[currentValue - 1];
                     var currentNoticePencil = selectNotive[currentValue - 1];
                     currentNoticePencil.textContent = "4";
-                    currentPencil.style.animation = "blink 1s linear infinite";
+                    currentPencil.style.animation = "blink 2s linear infinite";
                     for (var j = 0; j < be.length; j++) {
                         be[j].checked = false;
                         be[j].checked === true
@@ -642,6 +686,34 @@ const app = {
                     setTimeout(function () {
                         currentNoticePencil.textContent = "";
                     }, 350000);
+                }
+            }
+
+            // Hủy chuẩn bị tên lửa
+            if (e.keyCode === 77 || e.keyCode === 188 || e.keyCode === 190 || e.keyCode === 191) {
+                if (selectBe == 0) {
+                    console.log("Chưa chọn bệ");
+                } else {
+                    if (e.keyCode === 77) {
+                        currentCancelPencil = 1;
+                    }
+                    if (e.keyCode === 188) {
+                        currentCancelPencil = 2;
+                    }
+                    if (e.keyCode === 190) {
+                        currentCancelPencil = 3;
+                    }
+                    if (e.keyCode === 191) {
+                        currentCancelPencil = 4;
+                    }
+                    cancelPencil[currentCancelPencil - 1].checked = true;
+                    var currentPencil = selectBe[currentCancelPencil - 1];
+                    var currentNoticePencil = selectNotive[currentCancelPencil - 1];
+                    currentNoticePencil.textContent = "";
+                    currentNoticePencil.style.display = "none";
+                    currentPencil.style.animation = "";
+                    currentPencil.classList.remove("triangle-solid");
+                    currentPencil.classList.add("triangle");
                 }
             }
 
@@ -725,7 +797,7 @@ const app = {
                         addPencil[currentValue - 1].checked = true;
                         var currentPencil = selectBe[+currentValue - 1];
                         quaso = valueBe[+currentValue - 1];
-                        console.log(quaso);
+                        // console.log(quaso);
                         if (
                             selectPencilChannel[0].style.display == "block" &&
                             selectPencilChannel[1].style.display == "block" &&
@@ -787,6 +859,42 @@ const app = {
                                 : (selectedBe[j].style.background = "var(--primary-color)");
                         }
                     }
+                }
+            }
+
+            // Huy chi thi muc tieu
+            if (e.keyCode === 75 || e.keyCode === 76 || e.keyCode === 186 || e.keyCode === 222) {
+                if (channel == 0) {
+                    alert("Chua chon kenh");
+                } else {
+                    // console.log(kenh);
+                    if (e.keyCode === 75) {
+                        currentCancelChannel = 1;
+                    }
+                    if (e.keyCode === 76) {
+                        currentCancelChannel = 2;
+                    }
+                    if (e.keyCode === 186) {
+                        currentCancelChannel = 3;
+                    }
+                    if (e.keyCode === 222) {
+                        currentCancelChannel = 4;
+                    }
+                    cancelChannel[currentCancelChannel - 1].checked = true;
+                    selectPencilChannel[+currentCancelChannel - 1].classList.add("triangle");
+                    selectPencilChannel[+currentCancelChannel - 1].style.display = "none";
+                    selectNotiveChannel[+currentCancelChannel - 1].textContent = "";
+                    selectNotiveChannel[+currentCancelChannel - 1].style.display = "none";
+                    pencilBe[kenh[channel][+currentCancelChannel - 1]].classList.remove(
+                        "triangle-solid-small"
+                    );
+                    pencilBe[kenh[channel][+currentCancelChannel - 1]].classList.add(
+                        "triangle-solid"
+                    );
+                    // pencilBe[kenh[currentChannel][+currentCancelChannel - 1]].style.display = "none";
+                    // noticePencil[kenh[currentChannel][+currentCancelChannel - 1]].style.display = "none";
+                    // noticePencil[kenh[currentChannel][+currentCancelChannel - 1]].textContent = "";
+                    kenh[channel][+currentCancelChannel - 1] = null;
                 }
             }
 
@@ -899,25 +1007,60 @@ const app = {
                     }
                     pencilPhong[currentPencilPhong - 1].checked = true;
                     console.log(kenh[channelPhong]);
-
+                    stopCount();
                     setTimeout(function () {
                         selectKenhPhong[+currentPencilPhong - 1].classList.remove("triangle-solid");
                         selectKenhPhong[+currentPencilPhong - 1].classList.add(
                             "triangle-solid-small"
                         );
+                        kenhPhong[channelPhong - 1].checked = false;
+                        pencilPhong[currentPencilPhong - 1].checked = false;
                         selectKenhPhong[+currentPencilPhong - 1].style.animation = "";
-                        stopCount();
+
                         selectNotivePhong[+currentPencilPhong - 1].textContent = "";
                         selectNotivePhong[+currentPencilPhong - 1].style.display = "none";
                         pencilBe[kenh[channelPhong][0]].classList.remove("triangle-solid-small");
                         pencilBe[kenh[channelPhong][0]].classList.add("triangle");
                         pencilBe[kenh[channelPhong][0]].style.display = "none";
                         noticePencil[kenh[channelPhong][0]].style.display = "none";
-                        // noticePencil[kenh[channelPhong][0]].textContent = "";
+                        noticePencil[kenh[channelPhong][0]].textContent = "";
+                        gapTL1[channelPhong - 1].style.display = "block";
                         shoots1Channel.classList.remove("shoots1");
                         shoots1Channel.classList.add("shoots1-solid");
+                        sumPencil[0].innerText = "47";
+                        diemDau[channelPhong - 1].style.animation =
+                            "animate 25s linear normal forwards";
+                        setTimeout(function () {
+                            gapTL1[channelPhong - 1].style.display = "none";
+                            pencilBe[kenh[channelPhong][0]].style.display = "block";
+                            // noticePencil[kenh[channelPhong][0]].style.display = "block";
+                            selectKenhPhong[+currentPencilPhong - 1].classList.remove(
+                                "triangle-solid-small"
+                            );
+                            selectKenhPhong[+currentPencilPhong - 1].classList.add("triangle");
+                            selectKenhPhong[+currentPencilPhong - 1].style.display = "none";
+                            shoots1Channel.classList.remove("shoots1-solid");
+                            shoots1Channel.classList.add("shoots1");
+                            sumPencil[0].innerText = "47";
+                            diemDau[channelPhong - 1].style.animation =
+                                "animate2 5s linear normal forwards";
+                            setTimeout(function () {
+                                pencilBe[kenh[channelPhong][1]].style.display = "block";
+                                gapTL2[channelPhong - 1].style.display = "none";
+                                // noticePencil[kenh[channelPhong][1]].style.display = "block";
+                                selectKenhPhong[+currentPencilPhong].classList.remove(
+                                    "triangle-solid-small"
+                                );
+                                selectKenhPhong[+currentPencilPhong].classList.add("triangle");
+                                selectKenhPhong[+currentPencilPhong].style.display = "none";
+                                shoots2Channel.classList.remove("shoots2-solid");
+                                shoots2Channel.classList.add("shoots2");
+                                sumPencil[0].innerText = "48";
+                            }, 5500);
+                        }, 25500);
                     }, 2000);
                     setTimeout(function () {
+                        stopCount();
                         selectKenhPhong[+currentPencilPhong].classList.remove("triangle-solid");
                         selectKenhPhong[+currentPencilPhong].classList.add("triangle-solid-small");
                         selectKenhPhong[+currentPencilPhong].style.animation = "";
@@ -929,8 +1072,105 @@ const app = {
                         selectNotivePhong[+currentPencilPhong].style.display = "none";
                         shoots2Channel.classList.remove("shoots2");
                         shoots2Channel.classList.add("shoots2-solid");
-                        stopCount();
+                        gapTL2[channelPhong - 1].style.display = "block";
+                        sumPencil[0].innerText = "46";
                     }, 8000);
+                }
+            }
+
+            // Phếch số liệu
+            if (e.keyCode === 192) {
+                if (channel === 0) {
+                    console.log("Chua chon keenh");
+                } else {
+                    typeTarget[channel - 1].innerText = "Г";
+                }
+            }
+
+            if (e.keyCode === 74) {
+                if (channel === 0) {
+                    console.log("Chua chon keenh");
+                } else {
+                    typeTarget[channel - 1].innerText = "П";
+                }
+            }
+
+            if (e.keyCode === 78) {
+                if (channel === 0) {
+                    console.log("Chua chon keenh");
+                } else {
+                    typeTarget[channel - 1].innerText = "Б";
+                }
+            }
+
+            if (e.keyCode === 66) {
+                if (channel === 0) {
+                    console.log("Chua chon keenh");
+                } else {
+                    typeTarget[channel - 1].innerText = "A";
+                }
+            }
+
+            if (e.keyCode === 189) {
+                if (channel === 0) {
+                    console.log("Chua chon keenh");
+                } else {
+                    dashTarget[channel - 1].style.top = "18px";
+                }
+            }
+
+            if (e.keyCode === 187) {
+                if (channel === 0) {
+                    console.log("Chua chon keenh");
+                } else {
+                    dashTarget[channel - 1].style.top = "10px";
+                }
+            }
+
+            if (e.keyCode === 48) {
+                if (channel === 0) {
+                    console.log("Chua chon keenh");
+                } else {
+                    dashTarget[channel - 1].style.top = "14px";
+                }
+            }
+
+            if (e.keyCode === 57) {
+                if (channel === 0) {
+                    console.log("Chua chon keenh");
+                } else {
+                    problem[channel - 1].style.display = "none";
+                }
+            }
+
+            if (e.keyCode === 13) {
+                led2[0].classList.add("active");
+                scale[0].checked = true;
+                selectChannel[0].checked = true;
+                currentChannel = 1;
+                channel = 1;
+                selectPencilChannel = [
+                    pencilChannel[+currentChannel - 1],
+                    pencilChannel[+currentChannel],
+                    pencilChannel[+currentChannel + 1],
+                    pencilChannel[+currentChannel + 2],
+                ];
+                selectNotiveChannel = [
+                    noticeChannel[+currentChannel - 1],
+                    noticeChannel[+currentChannel],
+                    noticeChannel[+currentChannel + 1],
+                    noticeChannel[+currentChannel + 2],
+                ];
+                shootingMode[1].checked = true;
+                recognition[1].checked = true;
+                hide.classList.remove("hide"); //hide select box
+                screen.style.display = "block"; //show the playboard section
+            }
+
+            if (e.keyCode >= 37 && e.keyCode <= 40) {
+                if (selectBe == 0) {
+                    console.log("Chưa chọn bệ");
+                } else {
                 }
             }
         });
@@ -966,13 +1206,54 @@ const app = {
                 checkPencil[currentValue - 1].checked = false;
             }
 
+            // Hủy chuẩn bị tên lửa
+            if (e.keyCode === 77 || e.keyCode === 188 || e.keyCode === 190 || e.keyCode === 191) {
+                if (selectBe == 0) {
+                    console.log("Chưa chọn bệ");
+                } else {
+                    if (e.keyCode === 77) {
+                        currentCancelPencil = 1;
+                    }
+                    if (e.keyCode === 188) {
+                        currentCancelPencil = 2;
+                    }
+                    if (e.keyCode === 190) {
+                        currentCancelPencil = 3;
+                    }
+                    if (e.keyCode === 191) {
+                        currentCancelPencil = 4;
+                    }
+                    cancelPencil[currentCancelPencil - 1].checked = false;
+                }
+            }
+
             // Chỉ thị mục tiêu
             if (e.keyCode >= 53 && e.keyCode <= 56) {
                 var currentValue = e.keyCode - 52;
                 addPencil[currentValue - 1].checked = false;
             }
 
-            // Chọn kênh phóng
+            // Huy chi thi muc tieu
+            if (e.keyCode === 75 || e.keyCode === 76 || e.keyCode === 186 || e.keyCode === 222) {
+                if (channel == 0) {
+                    alert("Chua chon kenh");
+                } else {
+                    // console.log(kenh);
+                    if (e.keyCode === 75) {
+                        currentCancelChannel = 1;
+                    }
+                    if (e.keyCode === 76) {
+                        currentCancelChannel = 2;
+                    }
+                    if (e.keyCode === 186) {
+                        currentCancelChannel = 3;
+                    }
+                    if (e.keyCode === 222) {
+                        currentCancelChannel = 4;
+                    }
+                    cancelChannel[currentCancelChannel - 1].checked = false;
+                }
+            }
         });
     },
 
